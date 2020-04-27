@@ -15,5 +15,4 @@ Use Python to understand U.S. bikeshare data. Calculate statistics and build an 
 `.gitignore` - system file
 
 ### Credits
-
 This project is supported by *Udacity Programming for Data Science with Python Nanodegree*.
