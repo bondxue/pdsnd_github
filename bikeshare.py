@@ -86,15 +86,12 @@ def time_stats(df):
     # TO DO: display the most common month
     print('Most common month of travel: {}'.format(df['month'].value_counts().idxmax()))
 
-
     # TO DO: display the most common day of week
     print('Most common day of travel: {}'.format(df['day_of_week'].value_counts().idxmax()))
-
 
     # TO DO: display the most common start hour
     print('Most common start hour: {}'.
     format(datetime.datetime.strptime(str(df['Start Time'].dt.hour.value_counts().idxmax()), "%H").strftime("%I %p")))
-
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -169,17 +166,24 @@ def show_data(df):
 
     show_more = True
     index = 0
-    response = input('Do you want to see 5 lines data entries? Yes or No?\n')
+
+    while True:
+        response = input('Do you want to see 5 lines data entries? Yes or No?\n')
+        if response.lower() in ['yes', 'no']:
+            break
+
     while show_more:
 
         if response.lower() == 'yes':
-            print(df.loc[index:index+4, :])
+            print(df.loc[index:index+4])
             index += 5
-            response = input('Want see 5 more? Yes or No?\n')
+            while True:
+                response = input('Want see 5 more? Yes or No?\n')
+                if response.lower() in ['yes', 'no']:
+                    break
         if response.lower() == 'no':
             show_more = False
             break
-
 
 def main():
     while True:
